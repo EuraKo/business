@@ -1,0 +1,745 @@
+@charset "UTF-8";
+@import "reset.scss";
+@import "color.scss";
+@import "fonts.scss";
+@import "mixin.scss";
+@import "anim.scss";
+@import "sub_layout.scss";
+@import "department.scss";
+@import "members.scss";
+@import "community.scss";
+@import "my_members";
+
+/* header 영역 */
+
+#header {
+  width: 100%;
+  border-bottom: 1px solid #ddd;
+  .inner {
+    @include inner;
+    height: 120px;
+    position: relative;
+    h1 {
+      position: absolute;
+      left: 0;
+      bottom: 15px;
+      a {
+        @include h1;
+        color: #444;
+      }
+    }
+    #gnb {
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      li {
+        float: left;
+        a {
+          display: block;
+          padding: 14px 40px;
+          font-weight: bold;
+          font-size: 14px;
+          line-height: 1;
+          font-family: $fontDefault;
+          color: $colorDarkGary;
+          &:hover {
+            background: #555;
+            color: $colorWh;
+          }
+        }
+      }
+    }
+    .util {
+      position: absolute;
+      top: 20px;
+      right: 40px;
+      li {
+        float: left;
+        margin-left: 20px;
+        a {
+          font-size: 12px;
+          font-family: $fontDefault;
+          line-height: 1;
+          color: #999;
+        }
+      }
+    }
+    .btnCall {
+      position: absolute;
+      right: 30px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 20px;
+      height: 20px;
+      display: none;
+      &::before {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: #000;
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: all 0.5s;
+      }
+      &::after {
+        content: '';
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: #000;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        transition: all 0.5s;
+      }
+      span {
+        display: block;
+        width: 100%;
+        height: 2px;
+        background: #000;
+        position: absolute;
+        top: 50%;
+        left: 0;
+        margin-top: -1px;
+        text-indent: -9999px;
+        transition: all 0.5s;
+      }
+      &.on {
+        &::after {
+          bottom: 50%;
+          margin-bottom: -1px;
+          transform: rotate(-45deg);
+        }
+        &::before {
+          top: 50%;
+          margin-top: -1px;
+          transform: rotate(45deg);
+        }
+        span {
+          transform: translateX(100%);
+          opacity: 0;
+        }
+      }
+    }
+    .menuMo {
+      width: 270px;
+      height: 100vh;
+      background: #333;
+      position: fixed;
+      top: 0;
+      left: -270px;
+      padding: 35px 30px;
+      z-index: 10;
+      transition: all 0.5s;
+      &.on {
+        left: 0;
+      }
+      h1 {
+        padding-bottom: 30px;
+        border-bottom: 1px solid #666;
+        a {
+          display: block;
+          @include h1;
+          color: $colorWh;
+          text-align: center;
+        }
+        span {
+          font-size: 12px;
+          color: #aaa;
+        }
+      }
+      #gnbMo {
+        li {
+          a {
+            display: block;
+            width: 100%;
+            padding: 20px 0;
+            border-bottom: 1px solid #444;
+            font: bold 14px/1;
+            font-family: $fontDefault;
+            color: #888;
+            text-align: center;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+/* visual영역 */
+
+#visual {
+  width: 100%;
+  height: calc(100vh - 121px);
+  overflow: hidden;
+  background: #000;
+  video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0.4;
+  }
+  .inner {
+    @include inner;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    h1 {
+      font: normal 120px/1;
+      font-family: $fontDefault;
+      color: $colorWh;
+      margin-bottom: 20px;
+    }
+    p {
+      font-size: $fzBasic;
+      font-family: $fontPoint;
+      line-height: 1.4;
+      color: #888;
+      margin-bottom: 80px;
+    }
+    a {
+      @include btn($wid: 400px);
+      position: relative;
+      overflow: hidden;
+      transition: all .3s;
+      &:after {
+        content: "";
+        display: block;
+        width: 100%;
+        height: 100%;
+        background-color: $colorWh;
+        position: absolute;
+        top: 0;
+        left: -100%;
+      }
+      &:hover {
+        background: $colorWh;
+        color: #555;
+      }
+    }
+  }
+}
+
+
+/* news영역 */
+
+#news {
+  width: 100%;
+  padding: 200px 0;
+  .inner {
+    @include inner;
+    position: relative;
+    h1 {
+      @include h1;
+      color: #555;
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    .wrap {
+      width: 100%;
+      @include clear;
+      article {
+        width: 280px;
+        float: left;
+        margin-right: 20px;
+        &:last-of-type {
+          margin-right: 0;
+        }
+        &:hover {
+          box-shadow: 5px 5px 5px rgba(53, 63, 66, 0.4);
+        }
+        .pic {
+          width: 100%;
+          height: 120px;
+          overflow: hidden;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: all 0.5s;
+          }
+          &:hover {
+            img {
+              transform: scale(1.2);
+            }
+          }
+        }
+        h2 {
+          margin-bottom: 10px;
+          a {
+            font-size: $fzBasic;
+            font-family: $fontDefault;
+            line-height: 1;
+            color: #555;
+          }
+        }
+        p {
+          font-size: 14px;
+          line-height: 1.3;
+          font-family: $fontDefault;
+          color: $colorDarkGary;
+        }
+      }
+    }
+  }
+}
+
+
+/* brand영역 */
+
+#brand {
+  width: 100%;
+  padding: 200px 0;
+  background: $colorLightGray;
+  .inner {
+    @include inner;
+    position: relative;
+    h1 {
+      @include h1;
+      color: #555;
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    .wrap {
+      width: 100%;
+      @include clear;
+      article {
+        overflow: hidden;
+        &:nth-of-type(1) {
+          width: 380px;
+          height: 620px;
+          background: #444;
+          float: left;
+          margin-right: 20px;
+          padding: 170px 50px 0;
+          text-align: center;
+          &:hover {
+            i {
+              animation: ddiyoung .3s infinite alternate;
+            }
+          }
+          i {
+            font-size: 100px;
+            color: $colorWh;
+            margin-bottom: 20px;
+          }
+          h2 {
+            font: bold 20px/1;
+            font-family: $fontPoint;
+            color: $colorWh;
+            margin-bottom: 30px;
+          }
+          p {
+            font: 14px/1.3;
+            font-family: $fontPoint;
+            color: #999;
+            margin-bottom: 30px;
+          }
+          a {
+            @include btn($wid: 150px);
+            margin: 0 auto;
+          }
+        }
+        &:nth-of-type(2) {
+          width: 380px;
+          height: 300px;
+          position: relative;
+          background: #444;
+          float: left;
+          margin-right: 20px;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+          p {
+            width: 100%;
+            text-align: center;
+            position: absolute;
+            left: 0;
+            top: -100%;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.7);
+            transition: all .5s;
+          }
+          &:hover {
+            p {
+              top: 0;
+            }
+          }
+        }
+        &:nth-of-type(3) {
+          width: 380px;
+          height: 300px;
+          background: #444;
+          float: left;
+          position: relative;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+          p {
+            width: 100%;
+            text-align: center;
+            position: absolute;
+            left: 0;
+            top: -100%;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.7);
+            transition: all .5s;
+          }
+          &:hover {
+            p {
+              top: 0;
+            }
+          }
+        }
+        &:nth-of-type(4) {
+          width: 780px;
+          height: 300px;
+          background: #444;
+          float: left;
+          margin-top: 20px;
+          position: relative;
+          &::after {
+            content: '';
+            display: block;
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            background: linear-gradient(45deg, rgba(255, 192, 203, 0.4), rgba(173, 216, 230, 0.4));
+            opacity: 0;
+            transition: all 0.5s;
+          }
+          &:hover {
+            &::after {
+              opacity: 1;
+            }
+          }
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+/* banner영역 */
+
+#banner {
+  width: 100%;
+  padding: 150px 0;
+  background: url(../img/banner.jpg) no-repeat center/cover fixed;
+  .inner {
+    @include inner;
+    h1 {
+      font: bold 30px/1;
+      font-family: $fontPoint;
+      color: $colorWh;
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    p {
+      font-size: $fzBasic;
+      font-family: $fontPoint;
+      line-height: 1.3;
+      color: #bbb;
+      text-align: center;
+    }
+  }
+}
+
+
+/* comments영역 */
+
+#comments {
+  width: 100%;
+  padding: 150px 0;
+  background: #ddd;
+  .inner {
+    @include inner;
+    h1 {
+      @include h1;
+      color: #555;
+      text-align: center;
+      margin-bottom: 50px;
+    }
+    ul {
+      width: 100%;
+      li {
+        width: 100%;
+        margin-bottom: 20px;
+        border: 1px solid #222;
+        padding: 15px 20px;
+        transition: all 0.5s;
+        @include clear;
+        a {
+          font: 12px/1;
+          font-family: $fontDefault;
+          color: #555;
+          float: left;
+          transition: all 0.5s;
+        }
+        span {
+          font: 12px/1;
+          font-family: $fontDefault;
+          color: #888;
+          float: right;
+          transition: all 0.5s;
+        }
+        &:hover {
+          background: #444;
+          a {
+            color: $colorWh;
+          }
+          span {
+            color: #ddd;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+/* footer영역 */
+
+#footer {
+  width: 100%;
+  padding: 100px 0;
+  background: #444;
+  .inner {
+    @include inner;
+    @include clear;
+    h1 {
+      @include h1;
+      color: #666;
+      float: left;
+    }
+    ul {
+      float: right;
+      li {
+        float: left;
+        margin-left: 20px;
+        a {
+          font: bold 14px/1;
+          font-family: $fontDefault;
+          color: #666;
+        }
+      }
+    }
+    address {
+      width: 100%;
+      font: 14px/1.3;
+      font-family: $fontDefault;
+      color: $colorDarkGary;
+      margin-bottom: 20px;
+      margin-top: 20px;
+      float: left;
+      border-top: 1px solid #888;
+      padding-top: 20px;
+    }
+    p {
+      width: 100%;
+      font: 12px/1;
+      font-family: $fontDefault;
+      color: $colorDarkGary;
+      float: left;
+    }
+  }
+}
+
+
+/* tablet 구간 */
+
+@media screen and (max-width:1179px) {
+  /*-------------------- header 영역---------------------- */
+  #header {
+    .inner {
+      width: 100%;
+      height: 100px;
+      h1 {
+        left: 20px;
+      }
+    }
+  }
+  /*-------------------- figure 영역 --------------------*/
+  #visual {
+    height: calc(100vh - 101px);
+    background: url(../img/visual1.jpg) no-repeat center/cover;
+    video {
+      display: none;
+    }
+    .inner {
+      width: 100%;
+      padding: 0px 30px;
+      h1 {
+        font: normal 14vmin/1;
+      }
+      a {
+        width: 100%;
+      }
+    }
+  }
+  /*--------------------- news영역 ------------------------*/
+  #news {
+    padding: 100px 30px;
+    .inner {
+      width: 100%;
+      .wrap {
+        article {
+          width: 49%;
+          margin-right: 2%;
+          margin-bottom: 60px;
+          &:nth-of-type(2n) {
+            margin-right: 0;
+          }
+          .pic {
+            height: 20vmax;
+          }
+        }
+      }
+    }
+  }
+  /*---------------- BRAND 영역 --------------------------*/
+  #brand {
+    padding: 100px 30px;
+    .inner {
+      width: 100%;
+      .wrap {
+        article {
+          &:nth-of-type(1) {
+            width: 49%;
+            margin-right: 2%;
+          }
+          &:nth-of-type(2) {
+            width: 49%;
+            margin-right: 0px;
+            margin-bottom: 20px;
+          }
+          &:nth-of-type(3) {
+            width: 49%;
+          }
+          &:nth-of-type(4) {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+  /*---------------------- banner 영역 -----------------------*/
+  #banner {
+    padding: 150px 30px;
+    .inner {
+      width: 100%;
+    }
+  }
+  /*-------------------- comments 영역 -----------------------*/
+  #comments {
+    padding: 100px 30px;
+    .inner {
+      width: 100%;
+    }
+  }
+  /*-------------------- footer 영역 -------------------------*/
+  #footer {
+    padding: 100px 30px;
+    background: #222;
+    .inner {
+      width: 100%;
+    }
+  }
+}
+
+
+/* 모바일 구간 */
+
+@media screen and (max-width:539px) {
+  /*-------------------- header 영역---------------------- */
+  #header {
+    .inner {
+      .menuWeb {
+        display: none;
+      }
+      .btnCall {
+        display: block;
+      }
+    }
+  }
+  /*-------------------- figure 영역 --------------------*/
+  #visual {
+    .inner {
+      h1 {
+        font: normal 12vmin/1;
+        font-family: $fontPoint;
+      }
+    }
+  }
+  /*--------------------- news영역 ------------------------*/
+  #news {
+    .inner {
+      .wrap {
+        article {
+          width: 100%;
+          margin-right: 0px;
+          .pic {
+            height: 30vmax;
+          }
+        }
+      }
+    }
+  }
+  /*-------------------- BRAND 영역 ------------------------*/
+  #brand {
+    .inner {
+      .wrap {
+        article {
+          &:nth-of-type(1) {
+            width: 100%;
+            height: 400px;
+            padding: 50px;
+            margin-right: 0;
+            margin-bottom: 20px;
+          }
+          &:nth-of-type(2) {
+            width: 100%;
+          }
+          &:nth-of-type(3) {
+            width: 100%;
+          }
+        }
+      }
+    }
+  }
+  /*------------------- banner 영역 -------------------------*/
+  #banner {
+    padding: 100px 30px;
+  }
+  /*------------------ comments 영역 ------------------------*/
+  #comments {
+    .inner {
+      ul {
+        li {
+          a {
+            margin-bottom: 0px;
+          }
+        }
+      }
+    }
+  }
+  /*-------------------- footer 영역 -----------------------*/
+  #footer {
+    padding: 80px 20px;
+  }
+}

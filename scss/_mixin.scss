@@ -1,0 +1,39 @@
+@mixin clear {
+  &:after {
+    content: '';
+    display: block;
+    clear: both;
+  }
+}
+
+@mixin inner {
+  width: 1180px;
+  margin: 0 auto;
+}
+
+@mixin btn($wid:100%) {
+  display: block;
+  width: $wid;
+  height: 30px;
+  font: 11px/30px "arial";
+  color: #eee;
+  border: 1px solid #bbb;
+  text-align: center;
+}
+
+@mixin h1($size:$fontTitle) {
+  font-size: $size;
+  font-family: $fontPoint;
+  line-height: 1;
+  font-weight: bold;
+}
+
+@mixin img($ht:auto, $fit:cover, $hidden:hidden) {
+  overflow: $hidden;
+  img {
+    width: 100%;
+    height: $ht;
+    object-fit: cover;
+    object-position: center;
+  }
+}

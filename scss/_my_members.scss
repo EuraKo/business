@@ -1,0 +1,67 @@
+.members {
+  background-color: $bgGary;
+  #members {
+    .inner {
+      .wrap {
+        display: flex;
+        flex-wrap: wrap;
+        article.member {
+          width: 26%;
+          position: relative;
+          margin-right: 11%;
+          margin-bottom: 11%;
+          padding: 50px 20px;
+          box-shadow: 10px 10px 4px rgba(192, 192, 192, 0.7);
+          background-color: #fff;
+          &:after {
+            content: '';
+            display: block;
+            width: 60px;
+            height: 10px;
+            position: absolute;
+            top: 20px;
+            left: 50%;
+            transform: translateX(-50%);
+            background-color: $bgGary;
+            border-radius: 10px;
+          }
+          &:nth-of-type(3n) {
+            margin-right: 0;
+          }
+          .img_box {
+            height: 300px;
+            position: relative;
+            .pic {
+              height: 80%;
+              @include img;
+            }
+            .team_name {
+              width: 100px;
+              height: 100%;
+              display: flex;
+              align-items: flex-end;
+              position: absolute;
+              top: 0;
+              left: 0;
+              padding: 10px;
+              background-color: rgba(255, 82, 82, 0.6);
+              font: 14px/1.4 'arial';
+              color: #fff;
+              letter-spacing: 5px;
+            }
+          }
+          h2 {
+            margin-top: 20px;
+            font: bold;
+            letter-spacing: 3px;
+          }
+          &.team_rnd {
+            .team_name {
+              background-color: rgba(163, 82, 255, 0.6);
+            }
+          }
+        }
+      }
+    }
+  }
+}
