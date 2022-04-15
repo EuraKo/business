@@ -22,6 +22,14 @@ a {
   opacity: 0;
 }
 
+fieldset {
+  border: none;
+}
+
+table {
+  border-collapse: collapse;
+}
+
 @keyframes ddiyoung {
   0% {
     transform: translateY(0);

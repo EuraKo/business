@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>join</title>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://kit.fontawesome.com/16312fa746.js" crossorigin="anonymous"></script>
+  <script defer src="js/main.js"></script>
+</head>
+
+<body>
+  <header id="header_sub">
+    <div class="inner">
+      <h1><a href="index.html">DCODELAB</a></h1>
+
+      <nav class="menuWeb">
+        <ul id="gnb_sub">
+          <li><a href="department.html">DEPARTMENT</a></li>
+          <li><a href="youtube.html">YOUTUBE</a></li>
+          <li><a href="community.html">COMMUNITY</a></li>
+          <li><a href="gallery.html">GALLERY</a></li>
+          <li><a href="location.html">LOCATION</a></li>
+        </ul>
+        <!-- ul.util>li*5>a -->
+        <ul class="util">
+          <li><a href="#">Contact</a></li>
+          <li><a href="#">Help</a></li>
+          <li><a href="#">Login</a></li>
+          <li><a href="#">Join</a></li>
+          <li><a href="#">SiteMap</a></li>
+        </ul>
+      </nav>
+
+      <a href="#" class="btnCall">
+        <span>메뉴호출</span>
+      </a>
+
+      <nav class="menuMo">
+        <h1>
+          <a href="index.html">DECODLAB</a>
+          <span>UI/UX DEVELOPMENT INSTITUTE</span>
+        </h1>
+        <ul id="gnbMo">
+          <li><a href="sub_page.html">DEPARTMENT</a></li>
+          <li><a href="youtube.html">YOUTUBE</a></li>
+          <li><a href="community.html">COMMUNITY</a></li>
+          <li><a href="gallery.html">GALLERY</a></li>
+          <li><a href="location.html">LOCATION</a></li>
+        </ul>
+
+      </nav>
+    </div>
+
+  </header>
+  <section class="content join">
+    <div class="sub_visual"></div>
+    <div class="inner">
+      <h1>JOIN <span>회원가입</span></h1>
+      <form action="">
+        <!-- action 은 데이터를 보낼 url을 적는곳 -->
+        <fieldset>
+          <!-- form의 구역을 나누는 태그(부모) **필수** -->
+          <legend class="hidden">
+            <!-- 제목 **필수** -->
+            회원가입 양식 폼
+          </legend>
+          <h2><label for="terms">Terms & Policy</label></h2>
+          <textarea name="terms" id="terms">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Architecto possimus voluptates aut hic officia quibusdam ullam nulla illum recusandae adipisci dolorem voluptate, repellat rem nostrum eos ratione maiores quae harum asperiores nesciunt corrupti minus incidunt. Nesciunt distinctio quae impedit est quisquam debitis quos, error commodi sunt voluptates? Ex nesciunt magnam quia. Laudantium quos enim ad expedita quisquam magni cupiditate maxime, incidunt quae culpa fugiat natus nemo. Animi vero error obcaecati modi quaerat odit reprehenderit ratione sunt maiores minus. Vitae error nihil delectus iusto voluptatum fugit veniam et omnis non maiores? Beatae nesciunt corrupti placeat, enim aliquam aperiam incidunt aut nulla.
+          </textarea>
+          <div class="agreement">
+            <input type="checkbox" name="agree" id="agree">
+            <label for="agree">약관에 동의합니다.</label>
+          </div>
+          <h2>MEMBER INFORMATION</h2>
+          <table>
+            <caption class="hidden">회원정보 입력양식 테이블</caption>
+            <tr>
+              <th scope="row"><label for="id">USER ID</label></th>
+              <td>
+                <input type="text" name="id" id="id" placeholder="아이디를 입력하세요" required>
+                <!-- placeholder 예시 텍스트를 적는것
+                  Ui/ux관점에서는 placeholder보다 따로 예시를 들어주는게 좋다
+                -->
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><label for="pwd">PASSWORD</label></th>
+              <td>
+                <input type="password" name="password" id="pwd" placeholder="비밀번호를 입력해 주세요" required>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row"><label for="pwd2">RE PASSWORD</label></th>
+              <td>
+                <input type="password" name="password2" id="pwd2" placeholder="비밀번호를 재입력해주세요" required>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">HOBBY</th>
+              <td>
+                <label for="game">
+                  <input type="checkbox" name="hobby" id="game" value="game">GAME
+                </label>
+                <label for="music">
+                  <input type="checkbox" name="hobby" id="music" value="music">MUSIC
+                </label>
+                <label for="dance">
+                  <input type="checkbox" name="hobby" id="dance" value="dance">DANCE
+                </label>
+                <p class="hobbyTxt">취미를 하나이상 선택해주세요</p>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">GENDER</th>
+              <td>
+                <label for="male">
+                  <input type="radio" name="gender" id="male" value="male">MALE
+                </label>
+                <label for="female">
+                  <input type="radio" name="gender" id="female" value="female">FEMALE
+                </label>
+                <p class="genderTxt">성별을 선택해 주세요</p>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <label for="email">E-MAIL</label>
+              </th>
+              <td>
+                <input type="text" name="email" id="email" placeholder="이메일주소를 입력하세요">
+                <select name="company" id="company">
+                  <option value="naver">@naver.com</option>
+                  <option value="google">@google.com</option>
+                  <option value="daum">@daum.net</option>
+                </select>
+              </td>
+            </tr>
+            <tr>
+              <th scope="row">
+                <label for="comments">
+                  COMMENTS
+                </label>
+              </th>
+              <td>
+                <textarea name="comments" id="comments" placeholder="코멘트를 남겨주세요" cols="30" rows="10"></textarea>
+              </td>
+            </tr>
+            <tr>
+              <th colspan="2">
+                <input type="reset" value="CANCLE">
+                <input type="submit" value="SUBMIT">
+              </th>
+            </tr>
+          </table>
+        </fieldset>
+      </form>
+    </div>
+  </section>
+
+  <footer id="footer_sub">
+    <div class="inner">
+      <h1>DCODELAB</h1>
+      <!-- ul>li*4>a -->
+      <ul>
+        <li><a href="#">Policy</a></li>
+        <li><a href="#">Terms</a></li>
+        <li><a href="#">Customer</a></li>
+        <li><a href="#">Contact us</a></li>
+      </ul>
+      <address>
+        address: Lorem ipsum dolor sit amet consectetur adipisicing elit. A, earum.<br />
+        Tel : +82 -123-1234-1234 Fax : +82 -123-1234-1234
+      </address>
+
+      <p>Copyright &copy; 2022 DECODLAB ALL Right reserved</p>
+    </div>
+  </footer>
+</body>
+
+</html>
